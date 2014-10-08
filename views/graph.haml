@@ -1,0 +1,26 @@
+%div.col-md-8
+	%div{:id=>"peopleCount"}
+	%input{:id=>"button", :type=>"button", :value => "Male"} 
+	%div.graph{:id=>"finishTime"}
+	%div.graph{:id=>"gender"}
+	%div.graph{:id=>"ageGroup"}
+%div.col-md-4
+	%ul
+		- @races.each() do |r|
+			%li
+				%a{:href => "#", :onclick => "updateCharts(#{r[0]}); return false;"} #{r[1]}
+:javascript
+	window.onload = function() {
+		google.load('visualization', '1.0', {'packages':['corechart'], 
+			"callback": function() {
+				updateCharts(1);
+		}});
+	};
+	
+	function updateCharts(race_id) {
+		var container = document.getElementById("finishTime");
+		var genderContainer = document.getElementById("gender");
+		var ageGroupContainer = document.getElementById("ageGroup");
+		var peopleCountContainer = document.getElementById("peopleCount");
+		getGraphData({finishTime: container, gender: genderContainer, ageGroup: ageGroupContainer, peopleCount: peopleCountContainer}, race_id);
+	};

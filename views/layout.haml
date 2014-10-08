@@ -1,0 +1,54 @@
+%html
+	%head
+		%script{:src => "/js/flotr2.min.js"}
+		%script{:src => "/js/race.js"}
+		%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+		%script{:src=>"https://www.google.com/jsapi"}
+		%script{:src=>"//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"}
+		%script{:src=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
+		%link{:rel=>"stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}
+		%link{:rel=>"stylesheet", :href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"}
+		%link{:rel=>"stylesheet", :href => "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css"}
+
+		:css
+			.graph {
+				width: 800px;
+				height: 400px;				
+			}
+			#peopleCount {
+				width: 800px;
+				height: 600px;
+			}
+			.docked {
+				position: fixed; 
+				top: 0px; 
+				right: 0px;
+				height: 200px;
+				padding-right: 20px;
+			}
+	%body
+		%div.container-fluid
+			%div.header
+				%nav{:role=>"navigation", :class=>"navbar navbar-inverse"}
+					%div{:class=>"navbar-header"}
+						%button{:type=>"button", :'data-target'=>"#navbarCollapse", :"data-toggle"=>"collapse", :class=>"navbar-toggle"}
+							%span{:class=>"sr-only"} Toggle navigation
+							%span{:class=>"icon-bar"}
+							%span{:class=>"icon-bar"}
+						%a{:href=>"#", :class=>"navbar-brand"}RunStat
+					%div{:id=>"navbarCollapse", :class=>"collapse navbar-collapse"}
+						%ul{:class=>"nav navbar-nav"}
+							%li.active
+								%a{:href => "/"} Главная								
+							%li
+								%a{:href => "/"} Графики
+							%li
+								%a{:href => "/compare"} Сравнение
+			%div					
+				= yield
+				%hr
+				%div.row
+					%div.col-xs-12
+						%footer
+							%p &copy; Copyright 2014 Studio camelCase
+		

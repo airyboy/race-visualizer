@@ -1,0 +1,39 @@
+%div
+	%select#race1
+		- @races.each() do |r|
+			%option{:value => "#{r[0]}"} #{r[1]}
+	%select#race2
+		- @races.each() do |r|
+			%option{:value => "#{r[0]}"} #{r[1]}
+	%input#but{:type => "button", :value => "Show"}
+%div#container{:style=>"width:800px;height:600px;"}
+%div#gender{:style=>"width:800px;height:600px;"}
+:javascript
+	$(document).ready(function(){
+		google.load('visualization', '1.0', {'packages':['corechart'], 
+			"callback": function() {
+				var but = $("#but");
+				but.on('click', loadData);
+		}});
+	});
+	
+	function hideCharts() {
+		$('#container').hide();
+	}
+	
+	function loadData() {		
+		var race1 = $("#race1").val();
+		var race2 = $("#race2").val();
+	
+		$.getJSON('/racePerf', {race1: race1, race2: race2, percent: true}, function(data){
+			var cont = document.getElementById('container');
+			compareLines(cont, data, function(){
+				$('#container').show();
+			});
+		});
+		
+		$.getJSON('/gender_comparison', {race1: race1, race2: race2, percent: true}, function(data){
+			var cont = document.getElementById('gender');
+			compareGender(cont, data);
+		});
+	}
