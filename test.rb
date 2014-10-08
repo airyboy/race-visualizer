@@ -23,8 +23,8 @@ rs = RaceStats.new
 
 rs.getAgeGroupDistribution(9).each{|a| p a}
 
-p Race.get(9)
-p Race.get(2)
+#p Race.get(9)
+#p Race.get(2)
 #r1 = RaceEntry.all(:race_id=> 9,  :order =>[:chip_time.asc])
 #r2 = RaceEntry.all(:race_id=> 2,  :order =>[:chip_time.asc])
 #x = rs.getAgeGroupDistribution(r1)
