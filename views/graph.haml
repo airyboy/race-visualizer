@@ -1,16 +1,18 @@
 %div.col-md-8
 	%div{:id=>"peopleCount"}
-	%input{:id=>"button", :type=>"button", :value => "Male"} 
+	%input{:id=>"button", :type=>"button", :value => "Male"}
 	%div.graph{:id=>"finishTime"}
 	%div.graph{:id=>"gender"}
 	%div.graph{:id=>"ageGroup"}
 %div.col-md-4
-	%ul
+	%ul.list-group
 		- @races.each() do |r|
-			%li
+			%li.list-group-item
 				%a{:href => "#", :onclick => "updateCharts(#{r[0]}); return false;"} #{r[1]}
 :javascript
 	window.onload = function() {
+		removeNavClasses();
+		$('#stat').addClass('active');
 		google.load('visualization', '1.0', {'packages':['corechart'], 
 			"callback": function() {
 				updateCharts(1);

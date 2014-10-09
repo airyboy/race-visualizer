@@ -1,3 +1,7 @@
+function removeNavClasses() {
+	$('ul.nav li').removeClass('active');
+}
+
 function getGraphData(containers, race_id) {
 	var d1= [];
 	var markers;
@@ -35,6 +39,22 @@ function getGraphData(containers, race_id) {
 	);
 }
 
+function compareAge(container, data) {
+	var dataTable = new google.visualization.DataTable();
+	dataTable.addColumn('string', 'AgeGroup');
+	dataTable.addColumn('number', data['race1_title']);
+	dataTable.addColumn('number', data['race2_title']);
+	dataTable.addRows(data['data']);
+	
+	var chart = new google.visualization.ColumnChart(container);
+	var options = { 
+		chartArea: {left: 50, top: 50, width: 700, height: 500},
+		legend: {position: 'top'},
+		vAxis: {minValue: 0}
+		};
+	chart.draw(dataTable, options);
+}
+
 function compareGender(container, data) {
 	var dataTable = new google.visualization.DataTable();
 	dataTable.addColumn('string', 'RaceName');
@@ -44,7 +64,9 @@ function compareGender(container, data) {
 	
 	var chart = new google.visualization.ColumnChart(container);
 	var options = { 
-		vAxis: {minValue: 0}
+		vAxis: {minValue: 0},
+		legend: {position: 'top'},
+		chartArea: {left: 50, top: 50, width: 700, height: 500}
 		};
 	chart.draw(dataTable, options);
 }

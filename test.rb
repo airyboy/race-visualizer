@@ -21,7 +21,10 @@ rs = RaceStats.new
 
 #p a1
 
-rs.getAgeGroupDistribution(9).each{|a| p a}
+races = Race.all
+races.each do |a|
+  p rs.getRaceMedian(a.id)
+end
 
 #p Race.get(9)
 #p Race.get(2)

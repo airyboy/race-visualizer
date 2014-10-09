@@ -7,9 +7,14 @@
 			%option{:value => "#{r[0]}"} #{r[1]}
 	%input#but{:type => "button", :value => "Show"}
 %div#container{:style=>"width:800px;height:600px;"}
+%hr
 %div#gender{:style=>"width:800px;height:600px;"}
+%hr
+%div#age_group{:style=>"width:800px;height:600px;"}
 :javascript
 	$(document).ready(function(){
+		removeNavClasses();
+		$('#compare').addClass('active');
 		google.load('visualization', '1.0', {'packages':['corechart'], 
 			"callback": function() {
 				var but = $("#but");
@@ -32,8 +37,13 @@
 			});
 		});
 		
-		$.getJSON('/gender_comparison', {race1: race1, race2: race2, percent: true}, function(data){
+		$.getJSON('/gender_comparison.json', {race1: race1, race2: race2, percent: true}, function(data){
 			var cont = document.getElementById('gender');
 			compareGender(cont, data);
+		});
+		
+		$.getJSON('/age_comparison.json', {race1: race1, race2: race2, percent: true}, function(data){
+			var cont = document.getElementById('age_group');
+			compareAge(cont, data);
 		});
 	}

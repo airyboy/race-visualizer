@@ -2,7 +2,11 @@ require_relative 'race_base'
 require 'json'
 
 class RaceParser
-  def parseJson10k(filename, gender, race_id)
+  def parse_3sport
+      
+  end
+  
+  def parse_json_10k(filename, gender, race_id)
     text = ""
     File.open(filename) do |f|
       while line = f.gets

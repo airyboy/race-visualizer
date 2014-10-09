@@ -38,11 +38,11 @@
 						%a{:href=>"#", :class=>"navbar-brand"}RunStat
 					%div{:id=>"navbarCollapse", :class=>"collapse navbar-collapse"}
 						%ul{:class=>"nav navbar-nav"}
-							%li.active
+							%li.active{:id=>"home"}
 								%a{:href => "/"} Главная								
-							%li
+							%li{:id=>"stat"}
 								%a{:href => "/"} Графики
-							%li
+							%li{:id=>"compare"}
 								%a{:href => "/compare"} Сравнение
 			%div					
 				= yield

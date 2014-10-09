@@ -143,7 +143,7 @@ get '/racePerf' do
   {:data => data, :race1_title => r1_name, :race2_title => r2_name}.to_json
 end
 
-get '/gender_comparison' do
+get '/gender_comparison.json' do
   r1_id = params[:race1].to_i
   r2_id = params[:race2].to_i
   
@@ -172,20 +172,36 @@ get '/gender_comparison' do
   {:data => arr}.to_json
 end
 
-get '/age_comparison' do
+get '/age_comparison.json' do
   r1_id = params[:race1].to_i
   r2_id = params[:race2].to_i
 
   rs = RaceStats.new  
-  r1_data = getAgeGroupDistribution(r1_id)
-  r2_data = getAgeGroupDistribution(r2_id)
+  r1_data = rs.getAgeGroupDistribution(r1_id)
+  r2_data = rs.getAgeGroupDistribution(r2_id)
   
   #express data in percent
   if (params[:percent] == 'true')
+    sum_r1 = r1_data.inject(0.0) {|sum, a| sum + a[1] }
+    sum_r2 = r2_data.inject(0.0) {|sum, a| sum + a[1] }
+    
+    r1_data.each() do |e|
+      e[1] = (e[1].to_f*100/sum_r1).round(2)
+    end
+    
+    r2_data.each() do |e|
+      e[1] = (e[1].to_f*100/sum_r2).round(2)
+    end
   end
   
   r1_name = Race.get(r1_id).race_name
   r2_name = Race.get(r2_id).race_name
+  
+  r2_hash = Hash[r2_data]
+  
+  data = r1_data.map{|a| [a[0], a[1], r2_hash[a[0]]]}
+  
+  {:data=>data, :race1_title => r1_name, :race2_title => r2_name}.to_json
 end
 
 
