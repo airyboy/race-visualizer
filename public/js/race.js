@@ -24,13 +24,6 @@ function getGraphData(containers, race_id) {
 		}
 	);
 	
-	$.getJSON('/peopleCount',
-		function(data) {
-			googleStackedBar(containers['peopleCount'], data);
-
-		}
-	);
-	
 	$.getJSON('/ageGroup', {race_id: race_id},
 		function(data) {			
 			ageGroupPie(containers['ageGroup'], data);
@@ -128,19 +121,19 @@ function googleLine(container, data) {
 		 
 	chart.draw(dt[current], options);
 	
-	google.visualization.events.addListener(chart, 'ready',
-      function() {
-        button.disabled = false;
-        button.value = (current ? 'Male' : 'Female');
-
-      });
+	$('#male_but').on('click', function(){
+		options['title'] = data['title'] + '. ' + 'Мужчины';
+		chart.draw(dataTable, options);
+		$('#female_but').removeClass('active');
+		$('#male_but').addClass('active');
+	});
 	
-	button.onclick = function() {
-		button.disabled = true;
-		options['title'] = data['title'] + '. ' + (current ? 'Мужчины' : 'Женщины');
-	    current = 1 - current;
-		chart.draw(dt[current], options);
-    }
+	$('#female_but').on('click', function(){
+		options['title'] = data['title'] + '. ' + 'Женщины';		
+		chart.draw(dataTableF, options);
+		$('#male_but').removeClass('active');
+		$('#female_but').addClass('active');
+	});
 }
 
 function googleStackedBar(container, data) {
@@ -161,10 +154,10 @@ function googleStackedBar(container, data) {
 		width: '800px',
         bar: { groupWidth: '75%' },
         isStacked: true,
-		annotations: {alwaysOutside: true},
+		annotations: {alwaysOutside: true, textStyle:{color: 'black', fontSize:12}},
 		hAxis: {maxValue: 7000, minValue: 0},
 		vAxis: {textPosition: 'none', textStyle: {fontSize: 6}},
-		chartArea: {left: 20, width: 800},
+		chartArea: {left: 20, top:40, width: 800, height:500},
 		animation:{
 	        duration: 1500,
 	        easing: 'out'

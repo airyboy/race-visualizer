@@ -1,11 +1,12 @@
 %div
-	%select#race1
-		- @races.each() do |r|
-			%option{:value => "#{r[0]}"} #{r[1]}
-	%select#race2
-		- @races.each() do |r|
-			%option{:value => "#{r[0]}"} #{r[1]}
-	%input#but{:type => "button", :value => "Show"}
+	%form.form-inline
+		%select.form-control#race1
+			- @races.each() do |r|
+				%option{:value => "#{r[0]}"} #{r[1]}
+		%select.form-control#race2
+			- @races.each() do |r|
+				%option{:value => "#{r[0]}"} #{r[1]}
+		%button.btn.btn-default#but{:type => "button"}Show
 %div#container{:style=>"width:800px;height:600px;"}
 %hr
 %div#gender{:style=>"width:800px;height:600px;"}

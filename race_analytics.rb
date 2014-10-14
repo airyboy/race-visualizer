@@ -22,13 +22,17 @@ DataMapper.auto_upgrade!
 
 class RaceStats
   def getRaceMedian(race_id)
-    people = RaceEntry.all(:race => {:id => race_id}, :order =>[:chip_time.desc])
-    
-    x = (people.count.to_f / 2).ceil
-    p people.count
-    p x
-    p people[x].chip_time
-    people[x].chip_time.strftime("%H:%M:%S")
+    people = RaceEntry.all(:race => {:id => race_id}, :gender=>"f", :order =>[:chip_time.desc])
+    middle = (people.count.to_f / 2).ceil
+
+    RunnerTime.timeToTimeOfDay(people[middle].chip_time)
+  end
+  
+  def getRaceMedianPace(race_id, gender)
+    people = RaceEntry.all(:race => {:id => race_id}, :gender=>gender, :order =>[:chip_time.desc])
+    middle = (people.count.to_f / 2).ceil
+    distance = Race.get(race_id).distance
+    RunnerTime.timeToPace(people[middle].chip_time, distance).values
   end
 
   def getRaceChipTimeGraph(race_id)

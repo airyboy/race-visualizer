@@ -204,7 +204,9 @@ get '/age_comparison.json' do
   {:data=>data, :race1_title => r1_name, :race2_title => r2_name}.to_json
 end
 
-
+get '/home' do
+  haml :"main"
+end
 
 
 

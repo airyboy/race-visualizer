@@ -56,4 +56,8 @@ class Race
 	property :distance, Decimal
 	
 	has n, :raceEntry	
+	
+	def to_s
+		"#{id};#{@race_name};#{@distance}"
+	end
 end

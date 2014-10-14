@@ -3,6 +3,11 @@ require 'json'
 
 class RaceParser
   def parse_3sport
+      url = 'https://data.3sport.org/vg-2014/events/28/results/gender/M?page=2'
+      
+      document = Nokogiri::HTML(open(url))
+      
+      document.css('table tbody tr')
       
   end
   

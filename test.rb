@@ -2,7 +2,96 @@ require_relative 'runnerHelpers'
 require_relative 'race_analytics'
 require 'json'
 require_relative 'race_parser'
+require 'nokogiri'
+require 'open-uri'
 
+def resultsTable
+  page_counter = 1
+  break_loop = false
+  
+  arr = Array.new
+  
+  until break_loop == true
+    url = "https://data.3sport.org/grom10k-2014/events/153/results/gender/F?page=#{page_counter}"    
+    document = Nokogiri::HTML(open(url))
+
+    x = document.css('table tbody tr')
+    x.each do |node|
+      cols = node.css('td')
+      if cols[0].text.strip == "DNF" || cols[0].text.strip == "DNS"
+        break_loop = true
+        break
+      end
+      p cols[0].text.strip!
+      arr.push([cols[0].text.strip!, cols[1].css('a')[0]['href'], cols[1].css('a')[0].text, cols[2].text, cols.css('td[class=result]').text])
+    end
+    
+    page_counter += 1
+  end
+  
+  json_arr = arr.to_json
+  
+  File.open("/Users/mike/female.json","w") do |f|
+    f.write(json_arr)
+  end
+  p "File saved"
+end
+
+def personAge(relative_url, current_year)
+  url = "https://data.3sport.org#{relative_url}"
+
+  document = Nokogiri::HTML(open(url))
+  
+  birth_year = document.css('table')[0].css('tr a')[0].text
+  p birth_year
+  current_year - birth_year.to_i
+end
+
+#resultsTable
+
+
+def save_to_db
+  text = ""
+  File.open('/Users/mike/female.json') do |f|
+    while line = f.gets
+      text += line
+    end
+  end
+
+  js = JSON.parse(text)
+  p js[0]
+
+  mm = Race.get(13)
+  js.each do |item|
+    r = RaceEntry.new
+    r.bib = item[3]
+    r.name = item[2]
+
+    age = personAge(item[1], 2014)
+  
+    r.age_group = case age
+    when 10..19 then '18-19'
+    when 20..22 then '20-22'
+    when 23..34 then '23-34'
+    when 35..39 then '35-39'
+    when 40..44 then '40-44'
+    when 45..49 then '45-49'
+    when 50..54 then '50-54'
+    when 55..59 then '55-59'
+    when 60..65 then '60-65'
+    when 65..100 then '65+'
+    end
+
+    r.gender = "f"
+    r.chip_time = Time.parse(item[4]) 
+    r.official_time = Time.parse(item[4]) 
+    r.race = mm
+    r.save
+    puts r
+  end
+end
+
+save_to_db
 
 #rp = RaceParser.new
 #rp.parseJson10k('/Users/mike/Downloads/10km-female.json', 'f', 10)
@@ -21,10 +110,9 @@ rs = RaceStats.new
 
 #p a1
 
-races = Race.all
-races.each do |a|
-  p rs.getRaceMedian(a.id)
-end
+#races = Race.all
+#races.each {|a| p rs.getRaceMedianPace(a.id, "m")}
+#races.group_by {|a| a.distance}.each {|a| p a[0].to_f}
 
 #p Race.get(9)
 #p Race.get(2)

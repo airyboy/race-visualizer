@@ -7,8 +7,9 @@
 		%script{:src=>"//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"}
 		%script{:src=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
 		%link{:rel=>"stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}
-		%link{:rel=>"stylesheet", :href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"}
 		%link{:rel=>"stylesheet", :href => "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css"}
+		%link{:rel=>"stylesheet", :href => "/css/lavish-bootstrap.css"}
+		
 
 		:css
 			.graph {
@@ -27,28 +28,27 @@
 				padding-right: 20px;
 			}
 	%body
-		%div.container-fluid
-			%div.header
-				%nav{:role=>"navigation", :class=>"navbar navbar-inverse"}
-					%div{:class=>"navbar-header"}
-						%button{:type=>"button", :'data-target'=>"#navbarCollapse", :"data-toggle"=>"collapse", :class=>"navbar-toggle"}
-							%span{:class=>"sr-only"} Toggle navigation
-							%span{:class=>"icon-bar"}
-							%span{:class=>"icon-bar"}
-						%a{:href=>"#", :class=>"navbar-brand"}RunStat
-					%div{:id=>"navbarCollapse", :class=>"collapse navbar-collapse"}
-						%ul{:class=>"nav navbar-nav"}
-							%li.active{:id=>"home"}
-								%a{:href => "/"} Главная								
-							%li{:id=>"stat"}
-								%a{:href => "/"} Графики
-							%li{:id=>"compare"}
-								%a{:href => "/compare"} Сравнение
-			%div					
-				= yield
-				%hr
-				%div.row
-					%div.col-xs-12
-						%footer
-							%p &copy; Copyright 2014 Studio camelCase
+		%div.header
+			%nav.navbar.navbar-inverse{:role=>"navigation"}
+				%div.navbar-header
+					%button{:type=>"button", :'data-target'=>"#navbarCollapse", :"data-toggle"=>"collapse", :class=>"navbar-toggle"}
+						%span{:class=>"sr-only"} Toggle navigation
+						%span{:class=>"icon-bar"}
+						%span{:class=>"icon-bar"}
+					%a{:href=>"#", :class=>"navbar-brand"}RunStat
+				%div{:id=>"navbarCollapse", :class=>"collapse navbar-collapse"}
+					%ul{:class=>"nav navbar-nav"}
+						%li.active{:id=>"home"}
+							%a{:href => "/home"} Главная								
+						%li{:id=>"stat"}
+							%a{:href => "/"} Графики
+						%li{:id=>"compare"}
+							%a{:href => "/compare"} Сравнение
+		%div.container-fluid		
+			= yield
+			%hr
+			%div.row
+				%div.col-xs-12
+					%footer
+						%p &copy; Copyright 2014, camelCase studio
 		

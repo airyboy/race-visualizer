@@ -7,9 +7,13 @@ class RunnerTime
     paceSeconds = seconds.to_f / distance.to_f
     
     minutes = (paceSeconds / 60).floor
-    secs = paceSeconds % 60
+    secs = (paceSeconds % 60).round(0).to_i
     
     return {:hours => 0, :minutes => minutes, :seconds => secs}
+  end
+  
+  def self.timeToTimeOfDay(time)
+    [time.hour, time.min, time.sec]
   end
   
   def self.timeToPaceString(time, distance)
