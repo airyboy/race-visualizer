@@ -4,4 +4,4 @@ runners.tmproj
 test.rb
 race.db
 playground.rb
-.swp
+*.swp
