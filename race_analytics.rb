@@ -44,15 +44,21 @@ class RaceStats
     sorted = people.sort_by {|p| p.chip_time}
     
     if type == :pace
-      sorted.chunk {|e| (e.paceSeconds()/ticksSeconds).floor}.sort.map {|x,y| [RunnerTime.secondsToPaceString(x*ticksSeconds), y.count]}
+      sorted.chunk {|e| (e.paceSeconds()/ticksSeconds).floor}.sort.map {|x,y| 
+				[RunnerTime.secondsToPaceString(x*ticksSeconds), y.count]
+			}
     elsif type == :paceTimeOfDay
-      sorted.chunk {|e| (e.paceSeconds()/ticksSeconds).floor}.sort.map {|x,y| [RunnerTime.secondsToPace(x*ticksSeconds), y.count]}
+      sorted.chunk {|e| (e.paceSeconds()/ticksSeconds).floor}.sort.map {|x,y| 
+				[RunnerTime.secondsToPace(x*ticksSeconds), y.count]
+			}
     elsif type == :finishTime
       distance = sorted.first.race.distance
 #      sorted.chunk {|e| (e.totalMinutes()/(ticksSeconds/60)).ceil}.sort.map {|x,y| [RunnerTime.minutesToTimeString(x*ticksSeconds/60), y.count]}      
       sorted.chunk {|e| (e.totalMinutes()/(ticksSeconds/60)).ceil}.sort.map {|x,y| [x*ticksSeconds/60, y.count]}
     elsif type == :finTimeOfDay       
-      sorted.chunk {|e| (e.totalMinutes()/(ticksSeconds/60)).ceil}.sort.map {|x,y| [RunnerTime.secondsToTimeOfDay(x*ticksSeconds), y.count]}
+      sorted.chunk {|e| (e.totalMinutes()/(ticksSeconds/60)).ceil}.sort.map {|x,y| 
+				[RunnerTime.secondsToTimeOfDay(x*ticksSeconds), y.count]
+			}
     end
   end
   

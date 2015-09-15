@@ -1,0 +1,15 @@
+%div.col-md-12
+	%div.graph{:id=>"peopleCount"}
+:javascript
+	window.onload = function() {
+		removeNavClasses();
+		$('#home').addClass('active');
+		google.load('visualization', '1.0', {'packages':['corechart'], 
+			"callback": function() {
+				$.getJSON('/peopleCount',
+					function(data) {
+						googleStackedBar(document.getElementById('peopleCount'), data);
+					}
+				);
+		}});
+	};

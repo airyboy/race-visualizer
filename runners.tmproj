@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>views/compare.haml</string>
+	<string>test.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -28,39 +28,53 @@
 		</dict>
 		<dict>
 			<key>filename</key>
+			<string>playground.rb</string>
+			<key>lastUsed</key>
+			<date>2014-10-26T20:08:01Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
 			<string>test.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:44:05Z</date>
+			<date>2014-10-26T20:08:01Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>runnerHelpers.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:44:06Z</date>
+			<date>2014-10-13T21:42:44Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>race_base.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:44:06Z</date>
+			<date>2014-10-19T18:16:02Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>race_analytics.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:45:17Z</date>
+			<date>2014-10-22T19:39:33Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>graph_web.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:44:09Z</date>
+			<date>2014-10-14T02:27:56Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>newrunners_parser.rb</string>
 			<key>lastUsed</key>
-			<date>2014-10-07T08:44:08Z</date>
+			<date>2014-10-26T06:11:47Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>race_parser.rb</string>
+			<key>lastUsed</key>
+			<date>2014-10-14T02:33:06Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -72,9 +86,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>207</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -86,86 +100,114 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>54</integer>
+				<integer>31</integer>
 				<key>line</key>
-				<integer>145</integer>
+				<integer>95</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>115</integer>
+			<integer>72</integer>
+		</dict>
+		<key>playground.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>public/js/race.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>24</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>59</integer>
 		</dict>
 		<key>race_analytics.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>24</integer>
-				<key>line</key>
 				<integer>69</integer>
+				<key>line</key>
+				<integer>31</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>52</integer>
+			<integer>0</integer>
 		</dict>
 		<key>race_base.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>26</integer>
+				<integer>57</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>12</integer>
+			<integer>17</integer>
 		</dict>
-		<key>runnerHelpers.rb</key>
+		<key>race_parser.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>13</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>5</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>5</integer>
+			<integer>0</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>36</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>9</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>5</integer>
 			</dict>
+		</dict>
+		<key>runnerHelpers.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>43</integer>
+				<key>line</key>
+				<integer>9</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>test.rb</key>
 		<dict>
@@ -174,21 +216,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>108</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>77</integer>
+			<integer>0</integer>
 		</dict>
 		<key>views/compare.haml</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>4</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>17</integer>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -200,9 +242,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -214,9 +256,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>25</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>41</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>7</integer>
+		</dict>
+		<key>views/main.haml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -228,18 +284,21 @@
 	<array>
 		<string>newrunners_parser.rb</string>
 		<string>graph_web.rb</string>
+		<string>race_parser.rb</string>
 		<string>public/js/race.js</string>
-		<string>views/compare.haml</string>
 		<string>race_analytics.rb</string>
 		<string>test.rb</string>
+		<string>playground.rb</string>
 		<string>views/graph.haml</string>
 		<string>views/layout.haml</string>
+		<string>views/main.haml</string>
+		<string>views/compare.haml</string>
 		<string>race_base.rb</string>
 		<string>runnerHelpers.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{62, 160}, {1149, 878}}</string>
+	<string>{{67, 0}, {1149, 877}}</string>
 </dict>
 </plist>

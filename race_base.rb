@@ -54,6 +54,7 @@ class Race
   property :id, Serial, :key => true
 	property :race_name, String
 	property :distance, Decimal
+	property :date, DateTime
 	
 	has n, :raceEntry	
 	
